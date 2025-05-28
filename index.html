@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8">
-    <title>MP3 Autoplay</title>
-  </head>
-  <body>
-    <audio autoplay playsinline>
-      <source src="Sigma.mp3" type="audio/mpeg">
-      Dein Browser unterstützt dieses Audioformat nicht.
-    </audio>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>MP3 Start per Klick</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #111;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body onclick="playAudio()">
+  <div>
+    <h1>Tippe irgendwo, um Musik zu starten 🎵</h1>
+    <p>(sigma.mp3 wird abgespielt)</p>
+  </div>
+
+  <audio id="player">
+    <source src="Sigma.mp3" type="audio/mpeg">
+    Dein Browser unterstützt kein Audio.
+  </audio>
+
+  <script>
+    function playAudio() {
+      const audio = document.getElementById('player');
+      audio.play();
+    }
+  </script>
+</body>
 </html>
